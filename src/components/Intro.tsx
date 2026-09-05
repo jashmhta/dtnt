@@ -61,26 +61,27 @@ export default function Intro() {
           />
         </div>
         <div className="absolute inset-0 bg-[#1c1410]/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
         <div className="relative mx-auto max-w-[1440px] px-5 pb-40 pt-28 md:px-10 md:pb-56 md:pt-40">
           <h2
             data-reveal
             className="font-display max-w-[14ch] uppercase text-white"
             style={{ fontSize: "clamp(2.6rem, 6.2vw, 5.8rem)", lineHeight: 1.0, letterSpacing: "0.01em" }}
           >
-            We make complex travel simple
+            We make dream trips simple
           </h2>
           <div className="mt-10 grid gap-6 text-white/90 md:grid-cols-3 md:pl-[38%]">
             <p data-reveal style={{ fontSize: "0.98rem", lineHeight: 1.65 }}>
-              We don’t just arrange flights and hotels.
+              We don’t just book flights and hotels.
             </p>
             <p data-reveal style={{ fontSize: "0.98rem", lineHeight: 1.65 }}>
-              We manage the entire journey — before, during, and after travel —
+              We manage the entire journey, before, during and after travel,
               anticipating needs, resolving issues proactively, and ensuring
               every trip runs smoothly.
             </p>
             <p data-reveal style={{ fontSize: "0.98rem", lineHeight: 1.65 }}>
-              From frequent business travel to once-in-a-lifetime journeys,
-              Flyward operates as an extension of your world.
+              From honeymoons in Kashmir and Maldives to Europe and Bali,
+              Drashti operates from Mumbai as an extension of your family.
             </p>
           </div>
         </div>
@@ -96,7 +97,7 @@ export default function Intro() {
           />
         </div>
         <h3
-          aria-label="Travel designed around you"
+          aria-label="Holidays crafted around you"
           className="font-display pointer-events-none absolute inset-0 flex flex-col items-center justify-center uppercase leading-[1.02]"
           style={{
             fontSize: "clamp(2.4rem, 7vw, 6.5rem)",
@@ -104,7 +105,7 @@ export default function Intro() {
             WebkitTextStroke: "1px rgba(251,248,243,0.85)",
           }}
         >
-          <span>Travel designed</span>
+          <span>Holidays crafted</span>
           <span>around you</span>
         </h3>
         <div className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-px bg-white/20 md:block" />

@@ -1,11 +1,31 @@
 "use client";
 
-import { useState } from "react";
-import { IMG } from "@/lib/assets";
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { IMG, VIDEOS } from "@/lib/assets";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function CTA() {
+  const root = useRef<HTMLElement>(null);
   const [status, setStatus] = useState<"idle" | "ok" | "error">("idle");
   const [sending, setSending] = useState(false);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        ".cta-bg",
+        { yPercent: -8 },
+        {
+          yPercent: 8,
+          ease: "none",
+          scrollTrigger: { trigger: root.current, start: "top bottom", end: "bottom top", scrub: true },
+        }
+      );
+    }, root);
+    return () => ctx.revert();
+  }, []);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -23,20 +43,30 @@ export default function CTA() {
   }
 
   return (
-    <section id="contact" className="relative overflow-hidden py-16 md:py-24">
+    <section ref={root} id="contact" className="relative overflow-hidden py-16 md:py-24">
       <div className="pointer-events-none px-3 md:px-6">
-        <img src={IMG.ctaBg} alt="" loading="lazy" className="w-full object-cover rounded-2xl" />
+        <img src={IMG.ctaBg} alt="" loading="lazy" className="cta-bg aspect-[4/3] w-full scale-110 rounded-2xl object-cover md:aspect-[21/9]" />
       </div>
 
       <div className="mx-auto max-w-[1440px] px-5 md:px-10 pt-12">
         <div className="overflow-hidden rounded-[28px] border border-black/[0.07] bg-white/60">
-          <img src={IMG.ctaTop} alt="" loading="lazy" className="h-[180px] md:h-[240px] w-full object-cover" />
+          <video
+            className="h-[180px] md:h-[240px] w-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster={IMG.ctaTop}
+            aria-label="Ocean waves rolling onto the beach"
+          >
+            <source src={VIDEOS.cta} type="video/mp4" />
+          </video>
           <div className="grid lg:grid-cols-2 gap-10 p-7 md:p-12">
             <div>
               <h2 className="font-display text-[9vw] sm:text-5xl lg:text-[3.4rem] leading-[1.04]">
-                Beyond the reach of search engines lies a world curated just for you
+                Tell us your dream trip. We’ll plan it from Mumbai
               </h2>
-              <img src={IMG.formSvg} alt="" loading="lazy" className="mt-8 w-40 opacity-80" />
             </div>
 
             <form onSubmit={onSubmit} className="flex flex-col gap-2" aria-label="Contact enquiry">

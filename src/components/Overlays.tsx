@@ -8,7 +8,7 @@ export default function Overlays() {
   const [chat, setChat] = useState(false);
 
   useEffect(() => {
-    const seen = localStorage.getItem("fw-cookie");
+    const seen = localStorage.getItem("dt-cookie");
     if (!seen) {
       const t = setTimeout(() => setCookie(true), 1800);
       return () => clearTimeout(t);
@@ -16,7 +16,7 @@ export default function Overlays() {
   }, []);
 
   const accept = () => {
-    localStorage.setItem("fw-cookie", "1");
+    localStorage.setItem("dt-cookie", "1");
     setCookie(false);
   };
 
@@ -63,7 +63,7 @@ export default function Overlays() {
             >
               <p className="font-display text-xl mb-1">How can we help?</p>
               <p className="text-sm opacity-65 mb-4">
-                A travel designer typically replies in minutes.
+                Call 88796 67506 or DM @drashtitours. Replies in minutes.
               </p>
               <a
                 href="#contact"

@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { IMG, PARTNERS } from "@/lib/assets";
+import { IMG } from "@/lib/assets";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -39,7 +39,7 @@ function Stat({
 }) {
   const v = useCounter(value, started);
   return (
-    <div>
+    <div className="rounded-2xl border border-white/50 bg-white/25 p-6 backdrop-blur-md md:p-7">
       <div
         className="font-display tabular-nums text-[#2b1d12]"
         style={{ fontSize: "clamp(3.4rem, 6vw, 5.6rem)", lineHeight: 1 }}
@@ -92,6 +92,7 @@ export default function Numbers() {
         <div className="num-photo absolute -inset-y-[8%] inset-x-0">
           <img src={IMG.numTop} alt="Sunrise over mountain lake" loading="lazy" className="h-full w-full object-cover" />
         </div>
+        <div className="absolute inset-0 bg-[#fbf8f3]/45" />
         <div className="relative mx-auto max-w-[1440px] px-5 pb-24 pt-40 md:px-10 md:pb-32 md:pt-64">
           <h2
             className="font-display max-w-[14ch] uppercase text-[#2b1d12]"
@@ -100,25 +101,14 @@ export default function Numbers() {
             Experience you can rely on
           </h2>
           <div className="stats-grid mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
-            <Stat value={94} suffix="%" label={<>Repeat<br />Bookings</>} started={started} />
-            <Stat value={89} suffix="%" label={<>Net Promotor Score</>} started={started} />
-            <Stat value={5} suffix="" label={<>Average Agent Experience</>} extra="years" started={started} />
-            <Stat value={25} suffix="+" label={<>Travel<br />Agents</>} started={started} />
-          </div>
-          <p
-            className="mb-6 mt-20 uppercase text-[#2b1d12]/60"
-            style={{ fontSize: "12px", letterSpacing: "0.3em" }}
-          >
-            Partners
-          </p>
-          <div className="flex flex-wrap items-center gap-x-12 gap-y-6">
-            {PARTNERS.slice(0, 5).map((src, i) => (
-              <img key={i} src={src} alt="Partner logo" loading="lazy" className="h-9 w-auto object-contain brightness-0 md:h-11" />
-            ))}
+            <Stat value={13} suffix="" label={<>Years<br />In Mumbai</>} extra="since 2012" started={started} />
+            <Stat value={100} suffix="%" label={<>Recommend</>} extra="15 reviews" started={started} />
+            <Stat value={10} suffix="" label={<>Team<br />In Mumbai</>} extra="people" started={started} />
+            <Stat value={24} suffix="/7" label={<>Support<br />On Call</>} started={started} />
           </div>
         </div>
       </div>
-      <img src={IMG.numFin} alt="Golden mountain sunset" loading="lazy" className="block w-full" />
+      <img src={IMG.numFin} alt="Golden tropical beach sunset" loading="lazy" className="block aspect-[16/10] w-full object-cover md:aspect-[21/8]" />
     </section>
   );
 }

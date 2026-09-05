@@ -179,23 +179,6 @@ h1, h2 {
   color: rgba(28, 20, 16, 0.55);
 }
 
-/* accessibility: skip link */
-.skip-link {
-  position: fixed;
-  top: -100px;
-  left: 16px;
-  z-index: 200;
-  background: #1c1410;
-  color: #fbf8f3;
-  padding: 0.7rem 1.2rem;
-  border-radius: 999px;
-  font-size: 13px;
-  transition: top 0.25s ease;
-}
-.skip-link:focus {
-  top: 12px;
-}
-
 /* accessibility: visible focus */
 a:focus-visible,
 button:focus-visible,

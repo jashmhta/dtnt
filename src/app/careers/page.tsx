@@ -1,55 +1,57 @@
+import type { Metadata } from "next";
 import Nav from "@/components/Nav";
-import Hero from "@/components/Hero";
+import PageHero from "@/components/PageHero";
 import Numbers from "@/components/Numbers";
 import Footer from "@/components/Footer";
 import Overlays from "@/components/Overlays";
+
+export const metadata: Metadata = {
+  title: "Careers | Drashti Tours Mumbai",
+  description:
+    "Join our Mumbai travel team. Learn visas and bookings, travel on duty and grow into a trip leader. Write to drashti.tours@gmail.com.",
+};
 
 export default function Careers() {
   return (
     <div className="page-wrapper">
       <Nav />
       <main>
-        <Hero />
+        <PageHero
+          title="Join our team"
+          copy="We are always looking for passionate travel experts who love planning honeymoons, holidays and corporate trips. Learn visas and bookings with us, travel on duty, and grow with a Mumbai team travellers recommend. Write to drashti.tours@gmail.com or call +91 88796 67506."
+        />
         <Numbers />
         <section className="mx-auto max-w-[1440px] px-5 md:px-10 py-32 md:py-40 bg-[#f0ece6] rounded-[28px]">
-          <h2 className="font-display text-[9vw] sm:text-5xl lg:text-6xl leading-[1.02] max-w-[16ch]">
-            Join our team
-          </h2>
-          <p className="mt-8 text-[15px] leading-relaxed opacity-70 max-w-2xl mx-auto">
-            We're always looking for passionate travel experts who want to redefine
-            the industry. Competitive benefits, full travel benefits, and the chance
-            to work with clients from around the world.
-          </p>
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             <div>
               <h3 className="font-display text-2xl">Benefits</h3>
               <ul className="list-disc list-inside text-[#2b1d12]/80 space-y-3">
                 <li>Full travel coverage for you + family</li>
-                <li>Health & dental insurance</li>
-                <li>Professional development budget</li>
+                <li>Training on visas and bookings</li>
+                <li>Travel with groups on duty</li>
               </ul>
             </div>
             <div>
               <h3 className="font-display text-2xl">Growth</h3>
               <ul className="list-disc list-inside text-[#2b1d12]/80 space-y-3">
-                <li>Mentorship program</li>
-                <li>Quarterly travel stipend</li>
-                <li>Leadership track</li>
+                <li>Mentorship on every booking</li>
+                <li>Learn honeymoon and holiday routes</li>
+                <li>Grow into trip leader</li>
               </ul>
             </div>
             <div>
               <h3 className="font-display text-2xl">Location</h3>
               <ul className="list-disc list-inside text-[#2b1d12]/80 space-y-3">
-                <li>Dubai HQ</li>
-                <li>London office</li>
-                <li>New York hub</li>
+                <li>Kandivali West, Mumbai studio</li>
+                <li>On-trip with groups</li>
+                <li>Support over call and DM</li>
               </ul>
             </div>
             <div>
               <h3 className="font-display text-2xl">Culture</h3>
               <ul className="list-disc list-inside text-[#2b1d12]/80 space-y-3">
-                <li>Quarterly retreats</li>
-                <li>Hack weeks</li>
+                <li>Festival tours together</li>
+                <li>Learning weeks</li>
                 <li>Team first</li>
               </ul>
             </div>

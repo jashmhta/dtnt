@@ -47,15 +47,15 @@ export default function TravelGrid() {
         <a id="private" href="#contact" className="travel-photo group relative block min-h-[92vh] overflow-hidden">
           <img
             src={IMG.grid1}
-            alt="Private travel — resort pool with umbrella"
+            alt="Honeymoon travel, resort pool with palm trees"
             loading="lazy"
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/10" />
           <div className="absolute inset-x-0 bottom-0 p-7 md:p-12">
             <span
               data-reveal
-              className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/60 px-5 py-2 uppercase text-white"
+              className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/10 px-5 py-2 uppercase text-white backdrop-blur-sm"
               style={{ fontSize: "11px", letterSpacing: "0.22em" }}
             >
               Explore <span aria-hidden>↗</span>
@@ -66,13 +66,13 @@ export default function TravelGrid() {
                 className="font-display uppercase leading-[1.0] text-white"
                 style={{ fontSize: "clamp(2.6rem, 4.6vw, 4.4rem)" }}
               >
-                Private
+                Honeymoon
                 <br />
                 travel
               </h3>
               <p data-reveal className="max-w-[30ch] text-white/85" style={{ fontSize: "0.95rem", lineHeight: 1.6 }}>
-                Thoughtfully planned travel for individuals and families.
-                Every detail handled with care, discretion, and flexibility.
+                Kashmir, Maldives, Thailand and Singapore. Best stays
+                within your budget, planned with care.
               </p>
             </div>
           </div>
@@ -81,15 +81,15 @@ export default function TravelGrid() {
         <a id="corporate" href="#contact" className="travel-photo group relative block min-h-[92vh] overflow-hidden">
           <img
             src={IMG.grid2}
-            alt="Corporate travel — traveler at a marina"
+            alt="Corporate travel, airplane wing at sunset"
             loading="lazy"
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/10" />
           <div className="absolute inset-x-0 bottom-0 p-7 md:p-12">
             <span
               data-reveal
-              className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/60 px-5 py-2 uppercase text-white"
+              className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/10 px-5 py-2 uppercase text-white backdrop-blur-sm"
               style={{ fontSize: "11px", letterSpacing: "0.22em" }}
             >
               Explore <span aria-hidden>↗</span>
@@ -105,8 +105,8 @@ export default function TravelGrid() {
                 travel
               </h3>
               <p data-reveal className="max-w-[30ch] text-white/85" style={{ fontSize: "0.95rem", lineHeight: 1.6 }}>
-                Efficient, reliable travel management for businesses and
-                executives who need things done right
+                Corporate hotel bookings and reliable business travel
+                managed from Mumbai, end to end.
               </p>
             </div>
           </div>

@@ -4,9 +4,8 @@ import { useEffect, useMemo, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion, useReducedMotion } from "motion/react";
-import Image from "next/image";
-import { IMG } from "@/lib/assets";
-import { HERO_MASK_BLOB } from "@/lib/hero-mask";
+import { IMG, VIDEOS } from "@/lib/assets";
+import { HERO_MASK_WORLD } from "@/lib/hero-mask";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -68,9 +67,9 @@ export default function Hero() {
 
   const maskUrl = useMemo(() => {
     const svg =
-      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 840">` +
-      `<rect width="1440" height="840" fill="black"/>` +
-      `<path d="${HERO_MASK_BLOB}" fill="white"/></svg>`;
+      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 720">` +
+      `<rect width="1440" height="720" fill="black"/>` +
+      `<path d="${HERO_MASK_WORLD}" fill="white"/></svg>`;
     return `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
   }, []);
 
@@ -105,6 +104,21 @@ export default function Hero() {
           scrub: 0.6,
         },
       });
+      gsap.fromTo(
+        ".hero-atmos",
+        { opacity: 1, scale: 1.04 },
+        {
+          opacity: 0.15,
+          scale: 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: root.current,
+            start: "top top",
+            end: "bottom bottom",
+            scrub: 0.6,
+          },
+        }
+      );
       gsap.to(".hero-photo-inner", {
         yPercent: 12,
         ease: "none",
@@ -126,6 +140,16 @@ export default function Hero() {
           scrub: true,
         },
       });
+      gsap.to(".hero-scroll", {
+        opacity: 0,
+        ease: "none",
+        scrollTrigger: {
+          trigger: root.current,
+          start: "top top",
+          end: "25% top",
+          scrub: true,
+        },
+      });
     }, root);
     return () => ctx.revert();
   }, [maskUrl, reduce]);
@@ -133,6 +157,17 @@ export default function Hero() {
   return (
     <section ref={root} id="top" className="relative h-[220vh] bg-[#fbf8f3]">
       <div className="sticky top-0 h-[100dvh] overflow-hidden">
+        <div className="hero-atmos absolute inset-0">
+          <img
+            src={IMG.heroBottom}
+            alt=""
+            aria-hidden
+            loading="eager"
+            className="h-full w-full scale-105 object-cover opacity-45"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#fbf8f3]/50 via-[#fbf8f3]/35 to-[#fbf8f3]/80" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-[#b99a68]/15 via-transparent to-[#3d2d20]/10" />
+        </div>
         <GridSvg />
         <div className="absolute left-[7%] top-[22%] opacity-70 text-[#3d2d20]">
           <Star className="h-5 w-5 animate-[spin_14s_linear_infinite]" />
@@ -141,19 +176,53 @@ export default function Hero() {
           <Star className="h-4 w-4 animate-[spin_14s_linear_infinite_reverse]" />
         </div>
 
+        <div className="hero-scroll absolute inset-x-0 bottom-8 z-10 flex flex-col items-center gap-3">
+          <span className="text-[11px] uppercase tracking-[0.3em] text-white/90" style={{ textShadow: "0 1px 12px rgba(28,20,16,0.5)" }}>
+            Scroll
+          </span>
+          <motion.span
+            aria-hidden
+            animate={reduce ? undefined : { y: [0, 8, 0] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            className="block h-10 w-px bg-white/80"
+            style={{ boxShadow: "0 1px 12px rgba(28,20,16,0.5)" }}
+          />
+        </div>
+
         <div ref={photo} className="absolute inset-0">
           <div className="hero-photo-inner absolute -inset-y-[8%] inset-x-0">
-            <Image
-              src={IMG.heroBottom}
-              alt="Aerial view of clouds below the horizon"
-              fill
-              priority
-              fetchPriority="high"
-              sizes="100vw"
-              className="object-cover object-center"
-            />
+            {reduce ? (
+              <img
+                src={IMG.heroBottom}
+                alt="Aerial view of tropical island"
+                loading="eager"
+                className="h-full w-full object-cover object-center"
+              />
+            ) : (
+              <video
+                className="h-full w-full object-cover object-center"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                poster={IMG.heroBottom}
+                aria-label="Aerial view of tropical island"
+              >
+                <source src={VIDEOS.hero} type="video/mp4" />
+              </video>
+            )}
           </div>
         </div>
+
+        <div
+          aria-hidden
+          className="absolute inset-0 z-[5]"
+          style={{
+            background:
+              "radial-gradient(ellipse 62% 52% at 50% 44%, rgba(28,20,16,0.42), transparent 70%)",
+          }}
+        />
 
         <div className="hero-title absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center">
           <motion.h1
@@ -168,18 +237,17 @@ export default function Hero() {
               textShadow: "0 1px 30px rgba(28,20,16,0.35)",
             }}
           >
-            With you at every horizon
+            With you on every trip
           </motion.h1>
           <motion.p
             initial={reduce ? false : { opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
             className="mt-6 max-w-[54ch] text-white/90"
-            style={{ fontSize: "1.02rem", lineHeight: 1.6 }}
+            style={{ fontSize: "1.02rem", lineHeight: 1.6, textShadow: "0 1px 18px rgba(28,20,16,0.55)" }}
           >
-            We manage travel end to end for individuals and businesses. As your
-            travel partner, we take care of every detail, so you can focus on
-            what really matters.
+            Personalized trips, seamless visas, hotels and flights, from Mumbai
+            to the world. DM @drashtitours or call 88796 67506.
           </motion.p>
           <motion.a
             initial={reduce ? false : { opacity: 0, y: 18 }}

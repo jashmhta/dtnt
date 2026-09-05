@@ -2,7 +2,9 @@ import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Intro from "@/components/Intro";
 import TravelGrid from "@/components/TravelGrid";
+import Marquee from "@/components/Marquee";
 import Journey from "@/components/Journey";
+import Escapes from "@/components/Escapes";
 import Numbers from "@/components/Numbers";
 import Testimonials from "@/components/Testimonials";
 import Security from "@/components/Security";
@@ -18,7 +20,9 @@ export default function Home() {
         <Hero />
         <Intro />
         <TravelGrid />
+        <Marquee />
         <Journey />
+        <Escapes />
         <Numbers />
         <Testimonials />
         <Security />

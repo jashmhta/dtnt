@@ -1,0 +1,25 @@
+# Drashti Tours And Travels — Mumbai
+
+Mumbai travel agency since 2012. Honeymoon packages, holidays, corporate hotel
+bookings, visa services and flight bookings, planned end to end within your budget.
+
+## Contact
+- Phone: +91 88796 67506
+- Email: drashti.tours@gmail.com
+- Instagram: https://www.instagram.com/drashtitours
+- Facebook: https://www.facebook.com/drashtitoursandtravels
+- Studio: Kandivali West, Mumbai, Maharashtra 400067, India
+
+## Services
+- Honeymoon packages: Kashmir, Maldives, Thailand, Singapore
+- Holiday packages: Bali, Europe, Turkey, Bhutan, Vietnam, Mauritius
+- Corporate hotel bookings and group travel
+- Tourist visa guidance, flights, transfers
+
+## Pages
+- Home: /
+- About: /about
+- Honeymoon travel: /private-service
+- Corporate travel: /corporate-service
+- Careers: /careers
+- Contact and enquiry: /contact

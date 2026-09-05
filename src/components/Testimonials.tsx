@@ -1,29 +1,24 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { AVATARS, IMG } from "@/lib/assets";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const testimonials = [
   {
-    name: "Kenneth Mackinnon",
-    title: "Top Notch!",
-    copy: "I originally thought using an agent would be more expensive, but Flyward actually saved me money. Their relationships with airlines and hotels meant I got a what I wanted for a better price. They are masters at optimizing a budget.",
+    name: "Honeymoon Couple, Mumbai",
+    title: "Maldives Sorted!",
+    copy: "We booked our Maldives honeymoon through Drashti Tours And Travels. Flights, stay and transfers were handled end to end within our budget. We just packed and flew.",
     img: AVATARS.kenneth,
   },
   {
-    name: "Amir Elayyan",
-    title: "Great Experience!",
-    copy: "Planning a holiday to Madagascar was something I always thought would be a logistical nightmare, until I called Flyward. They handled everything: research, planning, bookings, even payments, then simply sent me the final itinerary and invoice. I was speechless. It felt like a close family member had taken care of it all, anticipating every detail before I even asked. This is more than service, it’s trust and warmth, wrapped into one incredible team.",
+    name: "Family Traveller, Mumbai",
+    title: "Kashmir Made Easy!",
+    copy: "Planning Kashmir for the family felt overwhelming until we called Drashti on 88796 67506. They handled hotels, sightseeing and support on call. It felt like family had planned it for us.",
     img: AVATARS.amir,
   },
 ];
 
 export default function Testimonials() {
-  const root = useRef<HTMLElement>(null);
   const [index, setIndex] = useState(0);
   const [dir, setDir] = useState(1);
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -43,26 +38,10 @@ export default function Testimonials() {
     };
   }, []);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.to(".testi-photo", {
-        yPercent: 10,
-        ease: "none",
-        scrollTrigger: {
-          trigger: root.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
-    }, root);
-    return () => ctx.revert();
-  }, []);
-
   const t = testimonials[index];
 
   return (
-    <section ref={root} className="relative bg-[#fbf8f3]">
+    <section className="relative bg-[#fbf8f3]">
       <div className="mx-auto max-w-[1440px] px-5 pb-16 pt-20 text-center md:pt-28">
         <h2
           className="font-display mx-auto max-w-[16ch] uppercase text-[#2b1d12]"
@@ -72,17 +51,7 @@ export default function Testimonials() {
         </h2>
       </div>
 
-      <div className="relative overflow-hidden">
-        <div className="testi-photo absolute -inset-y-[10%] inset-x-0">
-          <img
-            src={IMG.testiBg}
-            alt="Mountain terrace restaurant at dusk"
-            loading="lazy"
-            className="h-full w-full object-cover"
-          />
-        </div>
-        <div className="absolute inset-0 bg-[#fbf8f3]/25" />
-
+      <div className="relative">
         <div className="relative mx-auto max-w-[900px] px-6 py-24 text-center md:py-36">
           <button
             onClick={() => go(index - 1, -1)}
@@ -149,7 +118,7 @@ export default function Testimonials() {
         </div>
       </div>
 
-      <img src={IMG.testiBottom} alt="" aria-hidden loading="lazy" className="block w-full" />
+      <img src={IMG.testiBottom} alt="" aria-hidden loading="lazy" className="block aspect-[16/10] w-full object-cover md:aspect-[21/8]" />
       <style jsx>{`
         .testi-enter {
           animation: testiIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;

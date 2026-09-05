@@ -19,30 +19,75 @@ const sans = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Flyward | Redefining Travel for a Modern World",
+  title: "Drashti Tours Mumbai | Honeymoon & Holiday Travel",
   description:
-    "We manage travel end to end for individuals and businesses. As your travel partner, we take care of every detail, so you can focus on what really matters.",
-  metadataBase: new URL("https://www.flyward.com"),
+    "Mumbai travel agency since 2012. Honeymoon packages, holidays, corporate hotel bookings, visas and flights. Call +91 88796 67506.",
+  metadataBase: new URL("https://www.facebook.com/drashtitoursandtravels"),
   openGraph: {
-    title: "Flyward | Redefining Travel for a Modern World",
+    title: "Drashti Tours And Travels | Mumbai",
     description:
-      "We manage travel end to end for individuals and businesses. As your travel partner, we take care of every detail.",
+      "Honeymoon packages, holidays, corporate hotel bookings, visas and flights from Mumbai since 2012.",
     type: "website",
     images: [
-      "https://cdn.prod.website-files.com/697797a5e8e563920247d163/6983e7f6ccaebdfeaa43934a_d2ea27b2ba1bf2f7ca2ff165f5a3e580_og.png",
+      {
+        url: "https://images.pexels.com/photos/27099922/pexels-photo-27099922.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1200&h=630",
+        width: 1200,
+        height: 630,
+        alt: "Overwater villas in the Maldives booked by Drashti Tours",
+      },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Flyward | Redefining Travel for a Modern World",
+    title: "Drashti Tours And Travels | Mumbai",
     description:
-      "We manage travel end to end for individuals and businesses.",
+      "Honeymoon, holiday and corporate travel from Mumbai since 2012.",
+    images: [
+      "https://images.pexels.com/photos/27099922/pexels-photo-27099922.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1200&h=630",
+    ],
   },
   icons: {
-    icon: "https://cdn.prod.website-files.com/697797a5e8e563920247d163/6983e7c5ac59ad91661fed9f_favicon32.png",
-    apple:
-      "https://cdn.prod.website-files.com/697797a5e8e563920247d163/6983e7c7eac208d2692f91de_favicon256.png",
+    icon: "/drashti-logo.jpg",
+    apple: "/drashti-logo.jpg",
   },
+};
+
+export const viewport = {
+  themeColor: "#fbf8f3",
+};
+
+const SCHEMA = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TravelAgency",
+      name: "Drashti Tours And Travels",
+      description:
+        "Mumbai travel agency since 2012. Honeymoon packages, holidays, corporate hotel bookings, visa services and flight bookings.",
+      telephone: "+91 88796 67506",
+      email: "drashti.tours@gmail.com",
+      foundingDate: "2012",
+      priceRange: "₹₹",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Kandivali West",
+        addressLocality: "Mumbai",
+        addressRegion: "Maharashtra",
+        postalCode: "400067",
+        addressCountry: "IN",
+      },
+      areaServed: ["Mumbai", "India"],
+      sameAs: [
+        "https://www.instagram.com/drashtitours",
+        "https://www.facebook.com/drashtitoursandtravels",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      name: "Drashti Tours And Travels",
+      url: "https://www.facebook.com/drashtitoursandtravels",
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -54,11 +99,12 @@ export default function RootLayout({
     <html lang="en" className={`${display.variable} ${sans.variable}`}>
       <head>
         <link rel="preconnect" href="https://cdn.prod.website-files.com" crossOrigin="anonymous" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }}
+        />
       </head>
       <body className="min-h-screen bg-[#fbf8f3] text-[#1a1611] antialiased">
-        <a href="#main" className="skip-link">
-          Skip to content
-        </a>
         <LenisProvider>
           <div id="main">{children}</div>
         </LenisProvider>
