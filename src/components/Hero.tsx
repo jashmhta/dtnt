@@ -165,7 +165,7 @@ export default function Hero() {
             loading="eager"
             className="h-full w-full scale-105 object-cover opacity-45"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#fbf8f3]/50 via-[#fbf8f3]/35 to-[#fbf8f3]/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0b3b39]/60 via-[#0b3b39]/15 to-[#0b3b39]/75" />
           <div className="absolute inset-0 bg-gradient-to-tr from-[#b99a68]/15 via-transparent to-[#3d2d20]/10" />
         </div>
         <GridSvg />
