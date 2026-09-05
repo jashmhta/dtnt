@@ -45,6 +45,7 @@ export default function Footer() {
                 ["About", "/about"],
                 ["Honeymoon", "/private-service"],
                 ["Corporate", "/corporate-service"],
+                ["Destinations", "/destinations"],
                 ["Careers", "/careers"],
                 ["Contact", "/contact"],
               ].map(([label, href]) => (

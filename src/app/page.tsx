@@ -8,6 +8,7 @@ import Escapes from "@/components/Escapes";
 import Numbers from "@/components/Numbers";
 import Testimonials from "@/components/Testimonials";
 import Security from "@/components/Security";
+import Quiz from "@/components/Quiz";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import Overlays from "@/components/Overlays";
@@ -26,6 +27,7 @@ export default function Home() {
         <Numbers />
         <Testimonials />
         <Security />
+        <Quiz />
         <CTA />
       </main>
       <Footer />

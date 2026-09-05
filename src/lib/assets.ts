@@ -62,16 +62,3 @@ export const ESCAPES = [
     img: px(38367977, 1600),
   },
 ];
-
-export const DESTINATIONS = [
-  "Kashmir",
-  "Maldives",
-  "Bali",
-  "Thailand",
-  "Singapore",
-  "Europe",
-  "Turkey",
-  "Bhutan",
-  "Vietnam",
-  "Mauritius",
-];
