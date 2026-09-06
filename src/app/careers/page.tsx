@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import Overlays from "@/components/Overlays";
 
 export const metadata: Metadata = {
-  title: "Careers | Drashti Tours Mumbai",
+  title: "Careers | UdaanToli Mumbai",
   description:
     "Join our Mumbai travel team. Learn visas and bookings, travel on duty and grow into a trip leader. Write to drashti.tours@gmail.com.",
 };

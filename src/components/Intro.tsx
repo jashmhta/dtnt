@@ -11,6 +11,7 @@ export default function Intro() {
   const root = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const coarse = window.matchMedia("(max-width: 767px)").matches;
     const ctx = gsap.context(() => {
       gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((el) => {
         gsap.fromTo(
@@ -25,6 +26,7 @@ export default function Intro() {
           }
         );
       });
+      if (coarse) return;
       gsap.to(".intro-photo", {
         yPercent: 12,
         ease: "none",
@@ -81,7 +83,7 @@ export default function Intro() {
             </p>
             <p data-reveal style={{ fontSize: "0.98rem", lineHeight: 1.65 }}>
               From honeymoons in Kashmir and Maldives to Europe and Bali,
-              Drashti operates from Mumbai as an extension of your family.
+              UdaanToli operates from Mumbai as an extension of your family.
             </p>
           </div>
         </div>

@@ -11,19 +11,22 @@ export default function TravelGrid() {
   const root = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    const coarse = window.matchMedia("(max-width: 767px)").matches;
     const ctx = gsap.context(() => {
-      gsap.utils.toArray<HTMLElement>(".travel-photo").forEach((el) => {
-        gsap.fromTo(
-          el.querySelector("img"),
-          { yPercent: -10, scale: 1.15 },
-          {
-            yPercent: 10,
-            scale: 1.15,
-            ease: "none",
-            scrollTrigger: { trigger: el, start: "top bottom", end: "bottom top", scrub: true },
-          }
-        );
-      });
+      if (!coarse) {
+        gsap.utils.toArray<HTMLElement>(".travel-photo").forEach((el) => {
+          gsap.fromTo(
+            el.querySelector("img"),
+            { yPercent: -10, scale: 1.15 },
+            {
+              yPercent: 10,
+              scale: 1.15,
+              ease: "none",
+              scrollTrigger: { trigger: el, start: "top bottom", end: "bottom top", scrub: true },
+            }
+          );
+        });
+      }
       gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((el) => {
         gsap.fromTo(
           el,
@@ -44,7 +47,7 @@ export default function TravelGrid() {
   return (
     <section ref={root} className="relative bg-[#fbf8f3]">
       <div className="grid md:grid-cols-2">
-        <a id="private" href="#contact" className="travel-photo group relative block min-h-[92vh] overflow-hidden">
+        <a id="private" href="#contact" className="travel-photo group relative block min-h-[70vh] overflow-hidden md:min-h-[92vh]">
           <img
             src={IMG.grid1}
             alt="Honeymoon travel, resort pool with palm trees"
@@ -78,7 +81,7 @@ export default function TravelGrid() {
           </div>
         </a>
 
-        <a id="corporate" href="#contact" className="travel-photo group relative block min-h-[92vh] overflow-hidden">
+        <a id="corporate" href="#contact" className="travel-photo group relative block min-h-[70vh] overflow-hidden md:min-h-[92vh]">
           <img
             src={IMG.grid2}
             alt="Corporate travel, airplane wing at sunset"

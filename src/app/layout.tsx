@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 import LenisProvider from "@/components/LenisProvider";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const display = Fraunces({
   variable: "--font-display",
@@ -19,12 +21,12 @@ const sans = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Drashti Tours Mumbai | Honeymoon & Holiday Travel",
+  title: "UdaanToli Mumbai | Honeymoon & Holiday Travel",
   description:
     "Mumbai travel agency since 2012. Honeymoon packages, holidays, corporate hotel bookings, visas and flights. Call +91 88796 67506.",
   metadataBase: new URL("https://www.facebook.com/drashtitoursandtravels"),
   openGraph: {
-    title: "Drashti Tours And Travels | Mumbai",
+    title: "UdaanToli | Mumbai",
     description:
       "Honeymoon packages, holidays, corporate hotel bookings, visas and flights from Mumbai since 2012.",
     type: "website",
@@ -33,13 +35,13 @@ export const metadata: Metadata = {
         url: "https://images.pexels.com/photos/27099922/pexels-photo-27099922.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1200&h=630",
         width: 1200,
         height: 630,
-        alt: "Overwater villas in the Maldives booked by Drashti Tours",
+        alt: "Overwater villas in the Maldives booked by UdaanToli",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Drashti Tours And Travels | Mumbai",
+    title: "UdaanToli | Mumbai",
     description:
       "Honeymoon, holiday and corporate travel from Mumbai since 2012.",
     images: [
@@ -61,7 +63,7 @@ const SCHEMA = {
   "@graph": [
     {
       "@type": "TravelAgency",
-      name: "Drashti Tours And Travels",
+      name: "UdaanToli",
       description:
         "Mumbai travel agency since 2012. Honeymoon packages, holidays, corporate hotel bookings, visa services and flight bookings.",
       telephone: "+91 88796 67506",
@@ -84,7 +86,7 @@ const SCHEMA = {
     },
     {
       "@type": "WebSite",
-      name: "Drashti Tours And Travels",
+      name: "UdaanToli",
       url: "https://www.facebook.com/drashtitoursandtravels",
     },
   ],
@@ -106,6 +108,9 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-[#fbf8f3] text-[#1a1611] antialiased">
         <LenisProvider>
+          <Suspense>
+            <ScrollToTop />
+          </Suspense>
           <div id="main">{children}</div>
         </LenisProvider>
         <div aria-hidden className="grain-overlay" />

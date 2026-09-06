@@ -155,7 +155,7 @@ export default function Hero() {
   }, [maskUrl, reduce]);
 
   return (
-    <section ref={root} id="top" className="relative h-[220vh] bg-[#fbf8f3]">
+    <section ref={root} id="top" className="relative h-[160vh] bg-[#fbf8f3] md:h-[220vh]">
       <div className="sticky top-0 h-[100dvh] overflow-hidden">
         <div className="hero-atmos absolute inset-0">
           <img
@@ -225,13 +225,20 @@ export default function Hero() {
         />
 
         <div className="hero-title absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center">
+          <motion.span
+            initial={reduce ? false : { opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="mb-6 inline-flex items-center rounded-full border border-white/30 bg-white/10 px-5 py-2 text-[11px] uppercase tracking-[0.24em] text-white backdrop-blur-md"
+          >
+            Mumbai · Since 2012
+          </motion.span>
           <motion.h1
             initial={reduce ? false : { opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display max-w-[12ch] text-balance uppercase text-white"
+            className="font-display max-w-[12ch] text-balance text-[clamp(2.9rem,12vw,5.2rem)] uppercase text-white md:text-[clamp(2.4rem,5.6vw,5.2rem)]"
             style={{
-              fontSize: "clamp(2.4rem, 5.6vw, 5.2rem)",
               lineHeight: 0.98,
               letterSpacing: "0.02em",
               textShadow: "0 1px 30px rgba(28,20,16,0.35)",

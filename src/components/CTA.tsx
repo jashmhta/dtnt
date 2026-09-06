@@ -1,31 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useState } from "react";
 import { IMG, VIDEOS } from "@/lib/assets";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function CTA() {
-  const root = useRef<HTMLElement>(null);
   const [status, setStatus] = useState<"idle" | "ok" | "error">("idle");
   const [sending, setSending] = useState(false);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        ".cta-bg",
-        { yPercent: -8 },
-        {
-          yPercent: 8,
-          ease: "none",
-          scrollTrigger: { trigger: root.current, start: "top bottom", end: "bottom top", scrub: true },
-        }
-      );
-    }, root);
-    return () => ctx.revert();
-  }, []);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -43,11 +23,7 @@ export default function CTA() {
   }
 
   return (
-    <section ref={root} id="contact" className="relative overflow-hidden py-16 md:py-24">
-      <div className="pointer-events-none px-3 md:px-6">
-        <img src={IMG.ctaBg} alt="" loading="lazy" className="cta-bg aspect-[4/3] w-full scale-110 rounded-2xl object-cover md:aspect-[21/9]" />
-      </div>
-
+    <section id="contact" className="relative overflow-hidden py-16 md:py-24">
       <div className="mx-auto max-w-[1440px] px-5 md:px-10 pt-12">
         <div className="overflow-hidden rounded-[28px] border border-black/[0.07] bg-white/60">
           <video

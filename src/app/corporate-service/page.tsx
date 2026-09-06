@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import Overlays from "@/components/Overlays";
 
 export const metadata: Metadata = {
-  title: "Corporate Hotel Booking Mumbai | Drashti Tours",
+  title: "Corporate Hotel Booking Mumbai | UdaanToli",
   description:
     "Corporate hotel bookings and business travel from Mumbai. Rooms, transfers and on-call support. Call +91 88796 67506.",
 };

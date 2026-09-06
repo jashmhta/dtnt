@@ -6,7 +6,7 @@ import Overlays from "@/components/Overlays";
 import { DESTINATIONS } from "@/lib/destinations";
 
 export const metadata: Metadata = {
-  title: "Destinations | Drashti Tours Mumbai",
+  title: "Destinations | UdaanToli Mumbai",
   description:
     "Honeymoon and holiday destinations from Mumbai: Kashmir, Maldives, Bali, Thailand, Singapore, Europe, Turkey, Bhutan, Vietnam and Mauritius.",
 };

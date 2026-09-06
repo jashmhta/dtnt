@@ -11,7 +11,12 @@ export default function Security() {
   const root = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const coarse = window.matchMedia("(max-width: 767px)").matches;
     const ctx = gsap.context(() => {
+      if (coarse) {
+        gsap.set(".sec-card", { y: 0, opacity: 1 });
+        return;
+      }
       gsap.fromTo(
         ".sec-bg",
         { yPercent: -10 },
@@ -55,16 +60,15 @@ export default function Security() {
         </h2>
         <div className="mt-8 grid lg:grid-cols-2 gap-6 text-[15px] leading-relaxed opacity-80 max-w-[110ch]">
           <p>
-            We handle flights, hotels, visas and transfers from Mumbai, from
-            honeymoons in Kashmir and Maldives to holidays in Europe, Bali
-            and Turkey. One call to 88796 67506 or a DM to @drashtitours,
-            and every detail is taken care of within your budget.
+            We handle flights, hotels, visas and transfers from Mumbai:
+            honeymoons in Kashmir and Maldives, holidays in Europe, Bali and
+            Turkey. One call to 88796 67506 or a DM to @drashtitours, and
+            every detail is handled within your budget.
           </p>
           <p>
-            You retain total control over your plan. Drashti Tours And
-            Travels has served Mumbai since 2012 with corporate hotel
-            bookings, tour packages and visa support for families, couples
-            and businesses.
+            You retain total control over your plan. UdaanToli has served
+            Mumbai since 2012 with corporate hotel bookings, tour packages
+            and visa support for families, couples and businesses.
           </p>
         </div>
 

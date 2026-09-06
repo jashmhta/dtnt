@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const d = destinationBySlug(slug);
   if (!d) return {};
   return {
-    title: `${d.name} Packages from Mumbai | Drashti Tours`,
+    title: `${d.name} Packages from Mumbai | UdaanToli`,
     description: `${d.name} trips from Mumbai: ${d.tagline} Call +91 88796 67506 to plan around your dates.`,
   };
 }
@@ -47,7 +47,7 @@ export default async function DestinationPage({ params }: { params: Promise<{ sl
     },
     provider: {
       "@type": "TravelAgency",
-      name: "Drashti Tours And Travels",
+      name: "UdaanToli",
       telephone: "+91 88796 67506",
     },
   };

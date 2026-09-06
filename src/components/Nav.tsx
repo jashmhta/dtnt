@@ -15,7 +15,7 @@ export function Logo({ className = "h-11 w-11" }: { className?: string }) {
   return (
     <img
       src="/drashti-logo.jpg"
-      alt="Drashti Tours And Travels"
+      alt="UdaanToli"
       className={`${className} rounded-full object-cover bg-white ring-1 ring-black/10 grayscale`}
     />
   );
@@ -26,7 +26,7 @@ export default function Nav() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-[100] text-[#fbf8f3] [mix-blend-mode:difference]">
+      <header className="fixed inset-x-0 top-0 z-[100] hidden text-[#fbf8f3] [mix-blend-mode:difference] lg:block">
         <div className="px-5 md:px-10">
           <div className="relative mx-auto flex h-[68px] max-w-[1440px] items-center justify-between">
             <nav
@@ -64,11 +64,11 @@ export default function Nav() {
               />
             </button>
 
-            <a href="/" aria-label="Drashti Tours home" className="absolute left-1/2 -translate-x-1/2">
+            <Link href="/" aria-label="UdaanToli home" className="absolute left-1/2 -translate-x-1/2">
               <span className="whitespace-nowrap text-[17px] font-medium uppercase tracking-[0.3em]">
-                Drashti Tours
+                UdaanToli
               </span>
-            </a>
+            </Link>
 
             <div className="hidden lg:flex items-center gap-3">
               <Link
@@ -82,6 +82,39 @@ export default function Nav() {
           </div>
         </div>
       </header>
+
+      <div className="fixed inset-x-4 top-3 z-[100] text-white lg:hidden">
+        <div className="flex h-14 items-center justify-between rounded-full border border-white/25 bg-[#1c1410]/35 py-2 pl-2 pr-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.2)] backdrop-blur-xl">
+          <button
+            onClick={() => setOpen(!open)}
+            aria-expanded={open}
+            aria-label={open ? "Close menu" : "Open menu"}
+            className="flex h-10 w-10 flex-col items-center justify-center gap-[5px] rounded-full bg-white/10"
+          >
+            <span
+              className={`block h-[1.5px] w-4 bg-current transition-transform duration-300 ${
+                open ? "rotate-45 translate-y-[6.5px]" : ""
+              }`}
+            />
+            <span className={`block h-[1.5px] w-4 bg-current transition-opacity duration-300 ${open ? "opacity-0" : ""}`} />
+            <span
+              className={`block h-[1.5px] w-4 bg-current transition-transform duration-300 ${
+                open ? "-rotate-45 -translate-y-[6.5px]" : ""
+              }`}
+            />
+          </button>
+          <a href="/" aria-label="UdaanToli home" className="text-[12px] font-medium uppercase tracking-[0.28em]">
+            UdaanToli
+          </a>
+          <a
+            href="tel:+918879667506"
+            aria-label="Call UdaanToli"
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-[#fbf8f3] text-base text-[#1c1410]"
+          >
+            <span aria-hidden>✆</span>
+          </a>
+        </div>
+      </div>
 
       <AnimatePresence>
         {open && (

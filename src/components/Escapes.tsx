@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useReducedMotion } from "motion/react";
@@ -36,9 +36,20 @@ export default function Escapes() {
   const wrap = useRef<HTMLElement>(null);
   const track = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
+  const [coarse, setCoarse] = useState(false);
 
   useEffect(() => {
-    if (reduce || !wrap.current || !track.current) return;
+    const mq = window.matchMedia("(max-width: 767px)");
+    const update = () => setCoarse(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
+  const staticLayout = reduce || coarse;
+
+  useEffect(() => {
+    if (staticLayout || !wrap.current || !track.current) return;
     const ctx = gsap.context(() => {
       const distance = track.current!.scrollWidth - window.innerWidth;
       gsap.to(track.current, {
@@ -55,18 +66,20 @@ export default function Escapes() {
       });
     }, wrap);
     return () => ctx.revert();
-  }, [reduce]);
+  }, [staticLayout]);
 
-  if (reduce) {
+  if (staticLayout) {
     return (
       <section className="bg-[#fbf8f3] py-24">
         <div className="mx-auto max-w-[1440px] px-5 md:px-10">
           <h2 className="font-display max-w-[14ch] uppercase text-[#2b1d12]" style={{ fontSize: "clamp(2.4rem, 5.4vw, 5rem)", lineHeight: 1.04 }}>
             Escapes travellers ask for
           </h2>
-          <div className="mt-12 flex gap-6 overflow-x-auto pb-4">
+          <div className="mt-12 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4">
             {ESCAPES.map((e) => (
-              <Card key={e.name} {...e} />
+              <div key={e.name} className="shrink-0 snap-start">
+                <Card {...e} />
+              </div>
             ))}
           </div>
         </div>

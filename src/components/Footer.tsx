@@ -73,7 +73,7 @@ export default function Footer() {
             <p>Kandivali West, Mumbai</p>
             <p>Call: +91 88796 67506</p>
             <p>Email: drashti.tours@gmail.com</p>
-            <p className="mt-6">© Drashti Tours And Travels, Mumbai</p>
+            <p className="mt-6">© UdaanToli, Mumbai</p>
             <p>All Rights Reserved</p>
             <div className="mt-4 flex flex-wrap gap-5 underline-offset-4">
               <a href="https://www.instagram.com/drashtitours" target="_blank" className="hover:underline">
@@ -90,7 +90,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-14 border-t border-white/15 pt-8 flex justify-center">
-          <img src="/drashti-logo.jpg" alt="Drashti Tours And Travels" loading="lazy" className="h-28 w-28 rounded-full object-cover bg-[#fbf8f3] grayscale" />
+          <img src="/drashti-logo.jpg" alt="UdaanToli" loading="lazy" className="h-28 w-28 rounded-full object-cover bg-[#fbf8f3] grayscale" />
         </div>
         <div className="mt-6 flex justify-center opacity-60">
           <Logo className="hidden" />

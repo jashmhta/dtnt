@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import Overlays from "@/components/Overlays";
 
 export const metadata: Metadata = {
-  title: "Honeymoon Packages Mumbai | Drashti Tours",
+  title: "Honeymoon Packages Mumbai | UdaanToli",
   description:
     "Honeymoon specials to Kashmir, Maldives, Thailand and Singapore. Best stays within your budget, planned from Mumbai.",
 };

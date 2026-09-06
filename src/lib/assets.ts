@@ -17,10 +17,7 @@ export const IMG = {
   journey4: px(13799693, 1600),
   numFin: px(12446345, 2400),
   numTop: px(12365962, 2400),
-  testiBg: px(2387675, 2400),
-  testiBottom: px(12446349, 2400),
   securityBg: px(19780237, 2400),
-  ctaBg: px(9080918, 2400),
   ctaTop: px(14923408, 1920),
   footerBg: px(13240848, 2400),
 };

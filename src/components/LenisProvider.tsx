@@ -25,6 +25,8 @@ export default function LenisProvider({
 
     lenis.on("scroll", ScrollTrigger.update);
 
+    (window as unknown as { __lenis?: Lenis }).__lenis = lenis;
+
     const raf = (time: number) => {
       lenis.raf(time * 1000);
     };
@@ -48,6 +50,7 @@ export default function LenisProvider({
       document.removeEventListener("click", onClick);
       gsap.ticker.remove(raf);
       lenis.destroy();
+      delete (window as unknown as { __lenis?: Lenis }).__lenis;
     };
   }, []);
 

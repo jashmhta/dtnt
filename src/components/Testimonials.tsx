@@ -1,19 +1,19 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { AVATARS, IMG } from "@/lib/assets";
+import { AVATARS } from "@/lib/assets";
 
 const testimonials = [
   {
     name: "Honeymoon Couple, Mumbai",
     title: "Maldives Sorted!",
-    copy: "We booked our Maldives honeymoon through Drashti Tours And Travels. Flights, stay and transfers were handled end to end within our budget. We just packed and flew.",
+    copy: "We booked our Maldives honeymoon through UdaanToli. Flights, stay and transfers were handled end to end within our budget. We just packed and flew.",
     img: AVATARS.kenneth,
   },
   {
     name: "Family Traveller, Mumbai",
     title: "Kashmir Made Easy!",
-    copy: "Planning Kashmir for the family felt overwhelming until we called Drashti on 88796 67506. They handled hotels, sightseeing and support on call. It felt like family had planned it for us.",
+    copy: "Planning Kashmir for the family felt overwhelming until we called UdaanToli on 88796 67506. They handled hotels, sightseeing and support on call. It felt like family had planned it for us.",
     img: AVATARS.amir,
   },
 ];
@@ -118,7 +118,6 @@ export default function Testimonials() {
         </div>
       </div>
 
-      <img src={IMG.testiBottom} alt="" aria-hidden loading="lazy" className="block aspect-[16/10] w-full object-cover md:aspect-[21/8]" />
       <style jsx>{`
         .testi-enter {
           animation: testiIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;

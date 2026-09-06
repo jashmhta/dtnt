@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import Overlays from "@/components/Overlays";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Drashti Tours Mumbai",
+  title: "Contact Us | UdaanToli Mumbai",
   description:
     "Call +91 88796 67506, DM @drashtitours or send an enquiry. Honeymoon, holiday and corporate travel from Mumbai.",
 };

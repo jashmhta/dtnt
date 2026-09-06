@@ -70,6 +70,7 @@ export default function Numbers() {
   const [started, setStarted] = useState(false);
 
   useEffect(() => {
+    const coarse = window.matchMedia("(max-width: 767px)").matches;
     const ctx = gsap.context(() => {
       ScrollTrigger.create({
         trigger: ".stats-grid",
@@ -77,6 +78,7 @@ export default function Numbers() {
         once: true,
         onEnter: () => setStarted(true),
       });
+      if (coarse) return;
       gsap.to(".num-photo", {
         yPercent: 10,
         ease: "none",
